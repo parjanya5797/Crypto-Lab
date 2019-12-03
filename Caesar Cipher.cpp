@@ -29,6 +29,13 @@ void encrypt(char ch)
 	char l= alpha[(pos+k)%26];
 	printf("%c",l);
 }
+
+void decrypt(char ch)
+{
+	int pos =getpos(ch);
+	char l= alpha[(pos-k)%26];
+	printf("%c",l);
+}
 int main()
 {
 	char input[100];
@@ -36,10 +43,25 @@ int main()
 	gets(input);
 	int i=0;
 	int len = strlen(input);
+	
+	switch(a)
+	{
+	case '1':
+	printf("Encrypted String is:");
 	for(i=0;i<len;i++)
 	{
 		char ch = input[i];
 		encrypt(ch);
+	}
+	break;
+	case '2':
+		printf("Decrypted String is:");
+		for(i=0;i<len;i++)
+	{
+		char ch = input[i];
+		decrypt(ch);
+	}	
+	break;
 	}
 }
 
